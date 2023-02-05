@@ -17,7 +17,6 @@ export default async function images(
 
     let start = 0;
     const limit = 10;
-    // Todo: topic gleich all
     let filteredData = topic==="all" ? imageData : imageData.filter((data) => data.topics.includes(topic));
     if (search)
       filteredData = filteredData.filter(

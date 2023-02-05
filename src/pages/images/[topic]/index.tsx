@@ -36,7 +36,6 @@ export default function ImagesPage() {
   useEffect(() => {
     if (inView && hasNextPage) fetchNextPage();
   }, [inView, hasNextPage, fetchNextPage]);
-  console.log('data', data);
 
   return (
     <div className='flex w-full flex-col gap-5 '>

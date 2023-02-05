@@ -7,8 +7,7 @@ export default async function pixsyTopics(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  // const data = await getData('https://static.pixsy.io/sample/photos.json');
-  // const imageData: PixsyData[] = data['photos'];
+
   const imageData: PixsyData[] = await getMainData();
   if (req.method === 'GET') {
     let topics: Topic = {};

@@ -38,4 +38,15 @@ You can find an deployed solution under the following link: https://pixsy-topics
 - Use all the data points from the API
 - Ability to search by topic, image description or user
 - A deployed solution
-- The current version is only limited responsive for mobile devices.
+- The current version is only limited responsive for mobile devices
+
+#### The following aspects were considered for optimized behavior:
+
+- Use of Next js image class
+- To make sure the frontend gets the data fast, fetching with pagination / infininte scroll was implemented
+- SEO
+
+#### Clean code through
+
+- prettier
+- eslint
