@@ -13,7 +13,6 @@ import { Topic } from '@/interfaces/PixsyData';
 import { getData } from '@/services/getData';
 
 export default function HomePage() {
-  const [isSelected, setIsSelected] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const { data: topics, isLoading } = useQuery<Topic>(
