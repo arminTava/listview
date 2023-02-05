@@ -1,7 +1,9 @@
+import Image from 'next/image';
 import React from 'react';
 
-import NextImage from '@/components/NextImage';
+import { checkPermission } from '@/lib/helper';
 
+import { dummyUrl } from '@/constant/urls';
 import { PixsyData } from '@/interfaces/PixsyData';
 
 interface ImageCardProps {
@@ -12,17 +14,20 @@ export default function ImageCard({ pisxyData }: ImageCardProps) {
   return (
     <div className='xs:items-stretch relative mb-3  flex h-[420px] flex-col rounded-lg bg-white text-dark shadow '>
       <div className='relative h-60 flex-none'>
-        <NextImage
+        <Image
           style={{ objectFit: 'cover' }}
-          useSkeleton={true}
           fill
           sizes='(max-width: 768px) 100vw,
                 (max-width: 1200px) 50vw,
                 33vw'
-          className='cursor-pointer self-stretch rounded-lg'
-          src={pisxyData.url ? pisxyData.url : ''}
+          className='self-stretch rounded-lg'
+          src={
+            pisxyData.url && checkPermission(pisxyData.url)
+              ? pisxyData.url
+              : dummyUrl
+          }
           alt={pisxyData.user}
-        ></NextImage>
+        ></Image>
       </div>
       <div className='pt-3'>
         <div className='flex'>

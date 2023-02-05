@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import clsxm from '@/lib/clsxm';
@@ -5,27 +6,41 @@ import clsxm from '@/lib/clsxm';
 interface SearchBannerProps {
   searchTerm: string;
   setSearchTerm: (searchTerm: string) => void;
+  tab: string;
 }
 
 export default function SearchBanner({
   searchTerm,
   setSearchTerm,
+  tab,
 }: SearchBannerProps) {
+  const router = useRouter();
+
   return (
-    <div className='flex w-full cursor-pointer  items-center justify-evenly shadow'>
+    <div className='flex w-full  items-center justify-evenly shadow'>
       <div
+        onClick={() => router.push('/')}
         className={clsxm(
-          'flex flex-auto justify-center border-l-2 border-t-2 border-b-2 p-5 text-gray-400',
-          'text-black',
-          'text-gray-400'
+          'flex flex-auto cursor-pointer justify-center  border-l-2 border-t-2 border-b-2 p-5 text-gray-400',
+          tab === 'groups'
+            ? 'border-b-pixsy font-bold text-black'
+            : 'text-gray-400'
+        )}
+      >
+        Topics
+      </div>
+      <div
+        onClick={() => router.push('/images/all')}
+        className={clsxm(
+          'flex flex-auto cursor-pointer justify-center  border-t-2 border-b-2 p-5 text-gray-400',
+          tab === 'all'
+            ? 'border-b-pixsy font-bold text-black'
+            : 'text-gray-400'
         )}
       >
         All
       </div>
-      <div className='flex flex-auto justify-center border-t-2 border-b-2 p-5 text-gray-400'>
-        New
-      </div>
-      <div className='flex  flex-auto justify-center border-t-2 border-b-2 p-5 text-gray-400'>
+      <div className='flex  flex-auto cursor-not-allowed justify-center border-t-2 border-b-2 p-5 text-gray-400'>
         Ignored
       </div>
       {/* <div className='flex flex-auto justify-center border-t-2 border-b-2  p-5 text-gray-400'> */}
@@ -38,7 +53,7 @@ export default function SearchBanner({
         value={searchTerm}
       ></input>
       {/* </div> */}
-      <div className='flex flex-auto justify-center border-b-2 bg-pixsy p-5 text-white'>
+      <div className='flex flex-auto cursor-not-allowed justify-center border-b-2 bg-pixsy p-5 text-white'>
         IMPORT
       </div>
     </div>

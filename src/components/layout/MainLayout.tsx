@@ -16,29 +16,33 @@ export function getMainLayout(
           <div className='bg-grey9 fixed top-0 left-0 flex h-screen w-24 flex-col  border-r border-r-[#E4E7EC] '>
             <main className=' '>
               <ul className='font-inter flex flex-col space-y-2'>
-                <div className=' bg-blue-900'>PiXSY</div>
+                <div className=' flex justify-center bg-pixsy p-2 text-white '>
+                  PiXSY
+                </div>
                 {Object.entries(sideNavigations).map(([href, navigation]) => (
                   <li key={href}>
                     <Link
                       href={href}
                       passHref
                       className={clsxm(
-                        'font-inter hover:border-l-primary4 flex h-12 flex-col items-center justify-center',
-                        href === currentNavigationHref &&
-                          ' border-l-primary4 bg-primary9 text-primary2 border-l-4'
+                        'font-inter hover:border-l-primary4 h-12 ',
+                        !navigation.isAvailable && 'cursor-not-allowed'
                       )}
                     >
-                      <navigation.icon
-                        className={clsxm(
-                          'block self-center',
-                          href === currentNavigationHref && 'text-primary3'
-                        )}
-                        size={32}
-                      />
+                      <div className='flex flex-col items-center justify-center'>
+                        <navigation.icon
+                          fill={href === currentNavigationHref ? '#0396A6' : ''}
+                          className={clsxm(
+                            'block self-center',
+                            href === currentNavigationHref && 'text-primary3'
+                          )}
+                          size={32}
+                        />
 
-                      <p className='text-[8px] text-gray-400'>
-                        {navigation.text}
-                      </p>
+                        <p className='text-[8px] text-gray-400'>
+                          {navigation.text}
+                        </p>
+                      </div>
                     </Link>
                   </li>
                 ))}

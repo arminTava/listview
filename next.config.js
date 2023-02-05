@@ -4,7 +4,7 @@ const nextConfig = {
     dirs: ['src'],
   },
   images: {
-    domains: ['images.unsplash.com', 'images1.unsplash.com', 'undefined'],
+    domains: ['images.unsplash.com', 'images1.unsplash.com', 'undefined', "www.pixsy.com"],
   },
 
   reactStrictMode: true,
