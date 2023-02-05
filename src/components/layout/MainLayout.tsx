@@ -17,7 +17,7 @@ export function getMainLayout(
             <main className=' '>
               <ul className='font-inter flex flex-col space-y-2'>
                 <div className=' flex justify-center bg-pixsy p-2 text-white '>
-                  PiXSY
+                  PIXSY
                 </div>
                 {Object.entries(sideNavigations).map(([href, navigation]) => (
                   <li key={href}>
