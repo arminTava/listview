@@ -62,11 +62,6 @@ export default function ImagesPage() {
                   No items found...
                 </div>
               )}
-              {page.imageData.map((pisxyData: PixsyData) => (
-                <div key={pisxyData.id}>
-                  <ImageCard pisxyData={pisxyData}></ImageCard>
-                </div>
-              ))}
             </React.Fragment>
           ))}
         {isLoading &&

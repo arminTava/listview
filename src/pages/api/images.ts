@@ -24,7 +24,6 @@ export default async function images(
           data.description?.toLowerCase().includes(search) || data.user?.toLowerCase().includes(search.toLowerCase())
       );
     const index = filteredData.findIndex((item) => item.id === cursor);
-
     if (index !== -1) start = index + 1;
     const slicedImageData = filteredData.slice(start, start + limit);
     return res.status(200).json({
