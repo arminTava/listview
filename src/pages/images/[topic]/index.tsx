@@ -24,7 +24,7 @@ export default function ImagesPage() {
     useInfiniteQuery(
       ['images', router.query.topic, debouncedSearchTerm],
       async ({ pageParam = '' }) => {
-        const url = `http://localhost:3000/api/images?topic=${router.query.topic}&cursor=${pageParam}&search=${searchTerm}`;
+        const url = `/api/images?topic=${router.query.topic}&cursor=${pageParam}&search=${searchTerm}`;
         return await getData(url);
       },
       {
