@@ -20,6 +20,7 @@ export default function ImagesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const currentTopic = router.query.topic as string;
+
   const { isLoading, data, hasNextPage, fetchNextPage, isFetchingNextPage } =
     useInfiniteQuery(
       ['images', router.query.topic, debouncedSearchTerm],
@@ -35,6 +36,7 @@ export default function ImagesPage() {
   useEffect(() => {
     if (inView && hasNextPage) fetchNextPage();
   }, [inView, hasNextPage, fetchNextPage]);
+  console.log('data', data);
 
   return (
     <div className='flex w-full flex-col gap-5 '>
@@ -46,10 +48,21 @@ export default function ImagesPage() {
       <Link href='/' className={currentTopic === 'all' ? 'hidden' : ''}>
         <AiOutlineArrowLeft className='cursor-pointer' />
       </Link>
-      <div className='grid grid-cols-1 gap-12 lg:grid-cols-2'>
+      <div className='grid grid-cols-1 gap-12 lg:grid-cols-2 '>
         {data &&
           data.pages.map((page) => (
             <React.Fragment key={page.nextId ?? 'lastPage'}>
+              {page.imageData && page.imageData.length > 0 ? (
+                page.imageData.map((pisxyData: PixsyData) => (
+                  <div key={pisxyData.id}>
+                    <ImageCard pisxyData={pisxyData}></ImageCard>
+                  </div>
+                ))
+              ) : (
+                <div className='mt-10  text-xl text-gray-400'>
+                  No items found...
+                </div>
+              )}
               {page.imageData.map((pisxyData: PixsyData) => (
                 <div key={pisxyData.id}>
                   <ImageCard pisxyData={pisxyData}></ImageCard>

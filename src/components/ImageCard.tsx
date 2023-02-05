@@ -30,14 +30,14 @@ export default function ImageCard({ pisxyData }: ImageCardProps) {
         ></Image>
       </div>
       <div className='pt-3'>
-        <div className='flex'>
+        <div className='flex flex-col gap-2 sm:flex-row'>
           <h4 className='px-4 py-1 '>{pisxyData.user}</h4>
           <a
             type='button'
             target='_blank'
             rel='noopener noreferrer'
             href={pisxyData.link}
-            className=' flex w-32 items-center justify-center rounded-lg bg-pixsy p-2 text-white'
+            className=' ml-3 flex w-32 items-center justify-center rounded-lg bg-pixsy p-2 text-white sm:ml-0'
           >
             Visit website
           </a>

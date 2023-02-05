@@ -40,11 +40,12 @@ export default function HomePage() {
               <ImageSkeletonCard key={index}></ImageSkeletonCard>
             ))}
         </div>
+        {(!topics || Object.keys(topics).length === 0) && !isLoading && (
+          <div className='mt-10  text-xl text-gray-400'>No items found...</div>
+        )}
       </div>
       <Seo />
     </div>
   );
 }
 HomePage.getLayout = getMainLayout('/');
-
-//TODO: Skeleton loading, getData in backend muss noch effizient gemacht werden, responsive, aussehen, image collection, all and groups
