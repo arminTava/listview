@@ -49,7 +49,7 @@ export function getMainLayout(
               </ul>
             </main>
           </div>
-          <main className=' relative left-20 w-[calc(100%-6rem)] pl-32 pt-12 pr-20'>
+          <main className=' relative left-20 w-[calc(100%-6rem)] pl-14 pr-8 pt-12 sm:pr-20  sm:pl-32'>
             <Component {...pageProps} />
           </main>
         </main>

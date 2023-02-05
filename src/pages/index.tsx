@@ -28,7 +28,7 @@ export default function HomePage() {
           setSearchTerm={setSearchTerm}
           tab='groups'
         />
-        <div className='grid grid-cols-3 gap-12'>
+        <div className='grid grid-cols-1 gap-12 md:grid-cols-3'>
           {topics &&
             Object.keys(topics).map((topic, i) => (
               <div key={i} className='relative '>

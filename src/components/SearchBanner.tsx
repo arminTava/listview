@@ -17,7 +17,7 @@ export default function SearchBanner({
   const router = useRouter();
 
   return (
-    <div className='flex w-full  items-center justify-evenly shadow'>
+    <div className='flex w-full flex-col items-center justify-evenly sm:flex-row'>
       <div
         onClick={() => router.push('/')}
         className={clsxm(
@@ -45,7 +45,7 @@ export default function SearchBanner({
       </div>
       {/* <div className='flex flex-auto justify-center border-t-2 border-b-2  p-5 text-gray-400'> */}
       <input
-        className='focus:shadow-outline flex  w-20 flex-auto justify-center border-0 border-t-2 border-b-2 border-gray-200 p-5 text-center  text-gray-400 focus:border-pixsy focus:outline-none'
+        className='focus:shadow-outline flex  w-20 flex-auto justify-center border-0 border-t-2 border-b-2 border-gray-200 p-[18px] text-center text-gray-400  focus:border-pixsy focus:outline-none md:p-5'
         id='tokens'
         type='text'
         placeholder='Search'
