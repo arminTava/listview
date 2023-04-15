@@ -1,7 +1,6 @@
 # Listview
 
 <div align="center">
-  <h2>🔋 Challenge</h2>
   <p>Done in Next.js + Tailwind CSS + TypeScript</p>
 
 </div>
